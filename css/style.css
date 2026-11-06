@@ -537,7 +537,7 @@ button, input, textarea { font: inherit; }
 .rsvp form,
 .wishes { display: grid; gap: 10px; text-align: left; }
 
-.rsvp input,
+.rsvp input[type="text"],
 .rsvp textarea {
   width: 100%;
   border: 1px solid var(--line);
@@ -553,14 +553,23 @@ button, input, textarea { font: inherit; }
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px 22px;
+  gap: 14px 28px;
 }
 
 .choices label {
-  display: flex;
-  gap: 6px;
+  display: inline-flex;
   align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
   white-space: nowrap;
+}
+
+.choices input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: var(--ink);
 }
 
 .rsvp button,
