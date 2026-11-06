@@ -169,6 +169,8 @@
       const img = document.createElement("img");
       img.src = src;
       img.alt = "Ảnh " + (photoIndex + 1);
+      img.loading = "lazy";
+      img.decoding = "async";
       button.append(img);
       button.addEventListener("click", () => show(photoIndex));
       thumbs.append(button);
