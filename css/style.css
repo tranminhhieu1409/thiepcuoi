@@ -552,13 +552,21 @@ button, input, textarea { font: inherit; }
 .choices {
   display: flex;
   justify-content: center;
-  gap: 22px;
+  flex-wrap: wrap;
+  gap: 12px 22px;
 }
 
-.choices label { display: flex; gap: 6px; align-items: center; }
+.choices label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  white-space: nowrap;
+}
 
 .rsvp button,
 .copy-btn { justify-self: center; }
+
+.rsvp button:disabled { opacity: 0.6; }
 
 .form-note { min-height: 1.2em; margin: 10px 0 0; color: #2f6b45; }
 

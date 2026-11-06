@@ -58,4 +58,6 @@ window.WEDDING = {
   ],
   music: "",
   defaultGuest: "Bạn + người thân",
+  rsvpEmail: "tranhieu200914@gmail.com",
+  rsvpKey: "72caaf33-1886-43d6-932b-57f263779d79",
 };

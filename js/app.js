@@ -256,19 +256,42 @@
     };
 
     paint(saved);
-    document.getElementById("rsvpForm").addEventListener("submit", (event) => {
+    document.getElementById("rsvpForm").addEventListener("submit", async (event) => {
       event.preventDefault();
-      const form = new FormData(event.currentTarget);
+      const form = event.currentTarget;
+      const button = form.querySelector("button[type=submit]");
+      const fields = new FormData(form);
       const entry = {
-        name: String(form.get("name")).trim(),
-        attend: String(form.get("attend")),
-        message: String(form.get("message") || "").trim(),
+        name: String(fields.get("name")).trim(),
+        attend: String(fields.get("attend") || ""),
+        message: String(fields.get("message") || "").trim(),
       };
-      saved.push(entry);
-      localStorage.setItem(key, JSON.stringify(saved));
-      paint(saved);
-      event.currentTarget.reset();
-      note.textContent = "Cảm ơn " + entry.name + ". Lời nhắn của bạn đã được ghi lại trên máy này.";
+      button.disabled = true;
+      note.textContent = "Đang gửi lời nhắn...";
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: data.rsvpKey,
+            subject: "Lời chúc thiệp cưới — " + entry.name,
+            from_name: entry.name,
+            name: entry.name,
+            "Tham dự": entry.attend,
+            "Lời nhắn": entry.message || "(không có lời nhắn)",
+          }),
+        });
+        const result = await response.json();
+        if (!response.ok || result.success !== true) throw new Error("send failed");
+        saved.push(entry);
+        localStorage.setItem(key, JSON.stringify(saved));
+        paint(saved);
+        form.reset();
+        note.textContent = "Cảm ơn " + entry.name + ". Lời nhắn đã được gửi.";
+      } catch (error) {
+        note.textContent = "Chưa gửi được. Bạn thử lại giúp mình.";
+      }
+      button.disabled = false;
     });
   }
 
