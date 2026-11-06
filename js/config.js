@@ -52,7 +52,7 @@ window.WEDDING = {
     "images/anh15.jpg",
     "images/anh13.jpg",
     "images/anh12.jpg",
-    "images/anh14.jpg",
+    "images/anh11.jpg",
     "images/anh16.jpg",
     "images/anh6.jpg",
   ],
