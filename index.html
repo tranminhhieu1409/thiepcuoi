@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f6efe9" />
     <title>Thiệp mời cưới</title>
-    <link rel="stylesheet" href="css/fonts.css?v=9" />
-    <link rel="stylesheet" href="css/style.css?v=9" />
+    <link rel="stylesheet" href="css/fonts.css?v=10" />
+    <link rel="stylesheet" href="css/style.css?v=10" />
   </head>
   <body>
     <div class="petals" aria-hidden="true">
@@ -18,7 +18,7 @@
       <section class="cover" id="cover">
         <div class="cover-card">
           <p class="eyebrow">Wedding invitation</p>
-          <div class="monogram" id="coverMonogram">G</div>
+          <div class="monogram" id="coverMonogram">H&amp;T</div>
           <h1 class="cover-names" id="coverNames">Gia Bảo &amp; Hà My</h1>
           <p class="cover-date" id="coverDate">20.12.2026</p>
           <button class="open-btn" id="openBtn" type="button">Mở thiệp</button>
@@ -93,12 +93,22 @@
 
         <section class="venue">
           <h2 id="venueTitle">Tiệc cưới được tổ chức tại</h2>
-          <p class="venue-name" id="venueName"></p>
-          <p class="venue-address" id="venueAddress"></p>
-          <div class="map-frame">
-            <iframe id="mapFrame" title="Bản đồ địa điểm tổ chức" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <a class="map-link" id="mapLink" target="_blank" rel="noopener">Xem đường đi</a>
+          <article class="place">
+            <p class="venue-name">Nhà trai</p>
+            <p class="venue-address" id="groomVenueAddress"></p>
+            <div class="map-frame">
+              <iframe id="groomMapFrame" title="Bản đồ nhà trai" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a class="map-link" id="groomMapLink" target="_blank" rel="noopener">Xem đường đi</a>
+          </article>
+          <article class="place">
+            <p class="venue-name">Nhà gái</p>
+            <p class="venue-address" id="brideVenueAddress"></p>
+            <div class="map-frame">
+              <iframe id="brideMapFrame" title="Bản đồ nhà gái" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a class="map-link" id="brideMapLink" target="_blank" rel="noopener">Xem đường đi</a>
+          </article>
 
           <div class="countdown" id="countdown" aria-live="polite">
             <div><strong id="cdDays">--</strong><span>Ngày</span></div>
@@ -179,7 +189,7 @@
       <img id="lightboxImg" alt="" />
     </div>
 
-    <script src="js/config.js?v=9"></script>
-    <script src="js/app.js?v=9"></script>
+    <script src="js/config.js?v=10"></script>
+    <script src="js/app.js?v=10"></script>
   </body>
 </html>

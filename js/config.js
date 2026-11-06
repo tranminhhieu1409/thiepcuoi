@@ -11,6 +11,8 @@ window.WEDDING = {
     father: "Trần Văn Thơm",
     mother: "Đào Thị Hương",
     address: "Xóm 4 Thôn Quan Trung, Xã Lý Nhân, Tỉnh Ninh Bình",
+    map: "https://maps.app.goo.gl/uQbUy8KVZEtpfB3S7",
+    mapPin: "20.5747603,105.9973441",
     photo: "images/anh1.jpg",
     bank: {
       bank: "Vietcombank",
@@ -25,7 +27,9 @@ window.WEDDING = {
     father: "Lương Đức Phương",
     mother: "Lương Thị Nhàn",
     address: "TDP Từ Yên ,Phường Duy Tiên ,Tỉnh Ninh Bình",
-    photo: "images/IMG_1203.jpg",
+    map: "https://maps.app.goo.gl/Ebugpsi7eJTVV9oJ7",
+    mapPin: "20.6521361,106.0273489",
+    photo: "images/anh10.jpg",
     bank: {
       bank: "Vietcombank",
       number: "0901000142183",

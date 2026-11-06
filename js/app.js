@@ -34,7 +34,7 @@
   };
 
   document.title = "Thiệp mời cưới | " + couple;
-  text("coverMonogram", data.groom.nickname.charAt(0) + " " + data.bride.nickname.charAt(0));
+  text("coverMonogram", "H&T");
   text("coverNames", couple);
   text("coverDate", String(day).padStart(2, "0") + "." + String(monthIndex).padStart(2, "0") + "." + year);
   text("heroNames", couple);
@@ -60,8 +60,8 @@
     "Thời gian tổ chức, vào hồi " + hour + "h" + minute + " ngày " + day + " tháng " + monthIndex + " năm " + year
   );
   text("venueTitle", data.venueTitle);
-  text("venueName", data.venueName);
-  text("venueAddress", data.venueAddress);
+  text("groomVenueAddress", data.groom.address);
+  text("brideVenueAddress", data.bride.address);
   text("footerNames", couple);
 
   picture("heroPhoto", data.hero, couple);
@@ -69,11 +69,13 @@
   picture("groomPhoto", data.groom.photo, "Chú rể " + data.groom.fullName);
   picture("familyPhoto", data.familyPhoto, "");
 
-  const mapQuery = encodeURIComponent(data.venueAddress);
-  const map = document.getElementById("mapFrame");
-  map.src = "https://maps.google.com/maps?q=" + mapQuery + "&z=16&output=embed";
-  const mapLink = document.getElementById("mapLink");
-  mapLink.href = "https://www.google.com/maps/search/?api=1&query=" + mapQuery;
+  const showMap = (frameId, linkId, person) => {
+    document.getElementById(frameId).src =
+      "https://maps.google.com/maps?q=" + encodeURIComponent(person.mapPin) + "&z=16&output=embed";
+    document.getElementById(linkId).href = person.map;
+  };
+  showMap("groomMapFrame", "groomMapLink", data.groom);
+  showMap("brideMapFrame", "brideMapLink", data.bride);
 
   const timeline = document.getElementById("timeline");
   data.timeline.forEach((item) => {

@@ -85,8 +85,9 @@ button, input, textarea { font: inherit; }
   display: grid;
   place-items: center;
   font-family: "Cormorant Garamond", serif;
-  font-size: 26px;
-  letter-spacing: 0.06em;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .cover-names {
@@ -383,6 +384,8 @@ button, input, textarea { font: inherit; }
   margin: 4px 0 14px;
   color: var(--muted);
 }
+
+.place + .place { margin-top: 26px; }
 
 .map-frame {
   height: 210px;
