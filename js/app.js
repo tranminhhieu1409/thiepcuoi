@@ -93,13 +93,14 @@
   setupAlbum(data.album);
   setupGifts();
   setupRsvp();
-  setupMusic();
+  const musicControls = setupMusic();
 
   document.getElementById("openBtn").addEventListener("click", (event) => {
     const cover = document.getElementById("cover");
     const button = event.currentTarget;
     if (cover.classList.contains("is-open") || button.disabled) return;
     button.disabled = true;
+    if (musicControls) musicControls.play();
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!reduceMotion) burstHeart(button);
     window.setTimeout(() => cover.classList.add("is-open"), reduceMotion ? 0 : 380);
@@ -370,25 +371,35 @@
   }
 
   function setupMusic() {
-    if (!data.music) return;
+    if (!data.music) return null;
     const audio = document.getElementById("music");
     const button = document.getElementById("musicBtn");
     audio.src = data.music;
+    audio.preload = "auto";
+    audio.volume = 0.7;
     button.hidden = false;
-    button.addEventListener("click", async () => {
-      if (audio.paused) {
-        try {
-          await audio.play();
-          button.textContent = "Tắt nhạc";
-          button.setAttribute("aria-pressed", "true");
-        } catch (error) {
-          button.textContent = "Không phát được";
-        }
-      } else {
+    button.title = "Romantic Wedding Piano — AudioInfinity";
+
+    const setPlaying = (playing) => {
+      button.textContent = playing ? "Tắt nhạc" : "Nhạc";
+      button.setAttribute("aria-pressed", playing ? "true" : "false");
+    };
+
+    const play = () => {
+      const pending = audio.play();
+      if (pending && pending.then) {
+        pending.then(() => setPlaying(true)).catch(() => setPlaying(false));
+      }
+    };
+
+    button.addEventListener("click", () => {
+      if (audio.paused) play();
+      else {
         audio.pause();
-        button.textContent = "Nhạc";
-        button.setAttribute("aria-pressed", "false");
+        setPlaying(false);
       }
     });
+
+    return { play };
   }
 })();

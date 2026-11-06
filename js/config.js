@@ -56,7 +56,7 @@ window.WEDDING = {
     "images/anh16.jpg",
     "images/anh6.jpg",
   ],
-  music: "",
+  music: "music/romantic-wedding-piano.mp3",
   defaultGuest: "Bạn + người thân",
   rsvpEmail: "tranhieu200914@gmail.com",
   rsvpKey: "72caaf33-1886-43d6-932b-57f263779d79",
