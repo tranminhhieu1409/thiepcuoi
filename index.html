@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6efe9" />
+    <title>Thiệp mời cưới</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Dancing+Script:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=8" />
+  </head>
+  <body>
+    <div class="petals" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="stage">
+      <section class="cover" id="cover">
+        <div class="cover-card">
+          <p class="eyebrow">Wedding invitation</p>
+          <div class="monogram" id="coverMonogram">G</div>
+          <h1 class="cover-names" id="coverNames">Gia Bảo &amp; Hà My</h1>
+          <p class="cover-date" id="coverDate">20.12.2026</p>
+          <button class="open-btn" id="openBtn" type="button">Mở thiệp</button>
+        </div>
+      </section>
+
+      <main id="card">
+        <section class="hero">
+          <img id="heroPhoto" alt="" />
+          <div class="hero-copy">
+            <p class="hero-names" id="heroNames">Gia Bảo &amp; Hà My</p>
+            <p class="hero-script">Wedding</p>
+          </div>
+        </section>
+
+        <section class="save" style="background-image: url('images/floral.svg')">
+          <div class="save-card">
+            <p class="save-script">Save<br />the<br />date</p>
+            <p class="save-names" id="saveNames">Gia Bảo &amp; Hà My</p>
+            <p class="save-invite">invite you to our wedding party !</p>
+            <p class="date-row">
+              <span id="stdMonth">December</span>
+              <span class="sep">|</span>
+              <span class="date-day" id="stdDay">20</span>
+              <span class="sep">|</span>
+              <span id="stdWeekday">Sunday</span>
+            </p>
+            <p class="date-year" id="stdYear">2026</p>
+          </div>
+        </section>
+
+        <section class="portraits">
+          <article>
+            <img id="bridePhoto" alt="Cô dâu" />
+            <h2>Cô dâu</h2>
+            <p id="brideName">Trần Hà My</p>
+          </article>
+          <article>
+            <img id="groomPhoto" alt="Chú rể" />
+            <h2>Chú rể</h2>
+            <p id="groomName">Nguyễn Gia Bảo</p>
+          </article>
+        </section>
+
+        <section class="families">
+          <img class="families-bg" id="familyPhoto" alt="" />
+          <div class="families-grid">
+            <article>
+              <h2>Nhà gái</h2>
+              <p>Bố: <span id="brideFather"></span></p>
+              <p>Mẹ: <span id="brideMother"></span></p>
+              <p>Địa chỉ: <span id="brideAddress"></span></p>
+            </article>
+            <article>
+              <h2>Nhà trai</h2>
+              <p>Bố: <span id="groomFather"></span></p>
+              <p>Mẹ: <span id="groomMother"></span></p>
+              <p>Địa chỉ: <span id="groomAddress"></span></p>
+            </article>
+          </div>
+          <div class="invite">
+            <p class="invite-kicker">Trân trọng kính mời !</p>
+            <p class="guest" id="guestName">Bạn + người thân</p>
+            <p>Tới tham dự lễ thành hôn của chúng tôi</p>
+            <p id="whenLine"></p>
+          </div>
+        </section>
+
+        <section class="calendar-wrap">
+          <div id="calendar"></div>
+        </section>
+
+        <section class="venue">
+          <h2 id="venueTitle">Tiệc cưới được tổ chức tại</h2>
+          <p class="venue-name" id="venueName"></p>
+          <p class="venue-address" id="venueAddress"></p>
+          <div class="map-frame">
+            <iframe id="mapFrame" title="Bản đồ địa điểm tổ chức" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <a class="map-link" id="mapLink" target="_blank" rel="noopener">Xem đường đi</a>
+
+          <div class="countdown" id="countdown" aria-live="polite">
+            <div><strong id="cdDays">--</strong><span>Ngày</span></div>
+            <div><strong id="cdHours">--</strong><span>Giờ</span></div>
+            <div><strong id="cdMinutes">--</strong><span>Phút</span></div>
+            <div><strong id="cdSeconds">--</strong><span>Giây</span></div>
+          </div>
+          <p class="countdown-note" id="countdownNote" hidden>Hôm nay là ngày trọng đại của chúng tôi.</p>
+
+          <h3 class="timeline-title">Quan trọng</h3>
+          <ul class="timeline" id="timeline"></ul>
+          <p class="honor">Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi !</p>
+        </section>
+
+        <section class="album">
+          <h2>Album</h2>
+          <div class="album-stage">
+            <button class="album-nav prev" id="albumPrev" type="button" aria-label="Ảnh trước">‹</button>
+            <img id="albumMain" alt="Ảnh cưới" />
+            <button class="album-nav next" id="albumNext" type="button" aria-label="Ảnh sau">›</button>
+          </div>
+          <div class="thumbs" id="thumbs"></div>
+        </section>
+
+        <section class="rsvp">
+          <h2>Bạn sẽ đến chứ ?</h2>
+          <form id="rsvpForm">
+            <input id="guestInput" name="name" type="text" placeholder="Tên của bạn" required maxlength="80" />
+            <div class="choices">
+              <label><input type="radio" name="attend" value="Sẽ tham dự" required /> Sẽ tham dự</label>
+              <label><input type="radio" name="attend" value="Bận mất rồi" /> Bận mất rồi</label>
+            </div>
+            <textarea name="message" placeholder="Để lại lời nhắn cho chúng tôi" maxlength="400"></textarea>
+            <button type="submit">Gửi lời nhắn</button>
+          </form>
+          <p class="form-note" id="formNote" role="status"></p>
+          <p class="rsvp-copy">
+            Đám cưới của chúng tôi sẽ trọn vẹn hơn khi có thêm lời chúc phúc và sự hiện diện của bạn.
+            Xin hãy xác nhận sự có mặt của mình để chúng tôi chuẩn bị đón tiếp một cách chu đáo nhất nhé! Trân trọng!
+          </p>
+          <div class="wishes" id="wishes"></div>
+        </section>
+
+        <section class="gifts">
+          <h2>Mừng cưới</h2>
+          <div class="gift-grid">
+            <article class="gift-card">
+              <h3>Cô dâu</h3>
+              <p class="bank" id="brideBank"></p>
+              <p class="stk" id="brideStk"></p>
+              <p id="brideOwner"></p>
+              <button type="button" class="copy-btn" id="copyBride">Sao chép số tài khoản</button>
+              <img id="brideQr" alt="Mã QR cô dâu" hidden />
+            </article>
+            <article class="gift-card">
+              <h3>Chú rể</h3>
+              <p class="bank" id="groomBank"></p>
+              <p class="stk" id="groomStk"></p>
+              <p id="groomOwner"></p>
+              <button type="button" class="copy-btn" id="copyGroom">Sao chép số tài khoản</button>
+              <img id="groomQr" alt="Mã QR chú rể" hidden />
+            </article>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <p class="footer-script">Thank you</p>
+          <p id="footerNames"></p>
+        </footer>
+      </main>
+    </div>
+
+    <button class="music" id="musicBtn" type="button" hidden aria-pressed="false">Nhạc</button>
+    <audio id="music" loop preload="none"></audio>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Đóng">×</button>
+      <img id="lightboxImg" alt="" />
+    </div>
+
+    <script src="js/config.js?v=8"></script>
+    <script src="js/app.js?v=8"></script>
+  </body>
+</html>
